@@ -1,0 +1,5 @@
+admin_email: vuht@ati.vn
+host: vuha.jaxtony.xyz
+service:
+  name: mongo-express-service
+  port: 4200

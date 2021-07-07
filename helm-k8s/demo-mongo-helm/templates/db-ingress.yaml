@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/issuer: "letsencrypt-{{ .Release.Name }}"
+spec:
+  tls:
+  - hosts:
+    - {{ .Values.host}}
+    secretName: {{ .Release.Name }}-certs
+  rules:
+  - host: {{ .Values.host }}
+    http:
+      paths:
+      - path: /helm
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Release.Name }}-express-service
+            port:
+              number: 4200

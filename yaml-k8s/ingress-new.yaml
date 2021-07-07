@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mongo-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/issuer: "letsencrypt-pod"
+    # nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  tls:
+  - hosts:
+    - vuha.jaxtony.xyz
+    secretName: tls-certificate-certs
+  rules:
+  - host: vuha.jaxtony.xyz
+    http:
+      paths:
+      # - path: /db(.*)
+      - path: /
+        pathType: Prefix
+        # pathType: Exact
+        backend:
+          service:
+            name: mongo-express-service
+            port:
+              number: 4200

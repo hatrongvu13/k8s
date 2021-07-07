@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  anotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/issuer: "letsencrypt-staging"
+  name: app
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: vuha-test.mb-innovationlab.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: mongo-express-service
+          servicePort: 4200
+# kubectl create secret tls demo-tls-https --cert=fullchain.pem --key=privkey.pem 
+# openssl req -x509 -newkey rsa:2048 -nodes -days 365 -keyout privkey.pem -out fullchain.pem -subj '/CN=vuha-test.mb-innovationlab.com'

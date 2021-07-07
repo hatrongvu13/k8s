@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate 
+metadata:
+  name: tls-certificate-certs
+spec:
+  secretName: tls-certificate-certs
+  issuerRef:
+    name: letsencrypt-pod
+    kind: Issuer
+  dnsNames:
+  - vuha.jaxtony.xyz

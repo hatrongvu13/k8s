@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: app
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: vuha-test.mb-innovationlab.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: mongo-express-service
+          servicePort: 4200

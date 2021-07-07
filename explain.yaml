@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment # identifine deployment k8s
+  labels: # manager app using labels -> ..
+    app: nginx
+    type: demo # add something ...
+spec:
+  replicas: 3 # so luong pod muon chay dong thoi
+  selector: # la deployment quan ly pod quan ly thong qua labels ->> chon pod co cung label de lam viec
+    matchLabels:
+      app: nginx # * 
+  template:
+    metadata:
+      labels:
+        app: nginx # * mathcing vowsi lai labels
+    spec: # dinh nghia pod
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+
+# * 2 labels phai trung ten voi nhau
+nindent n - xuong dong ident - thut dau dong

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: demo-helm # identifine chart
+description: A Helm demo chart deploy nginx
+type: application
+version: 0.1.0 # version of chart - is valid
+appVersion: "1.16.0" # version of nginx - not valid :string or number

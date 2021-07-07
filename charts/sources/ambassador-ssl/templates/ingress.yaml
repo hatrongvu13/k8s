@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}
+  annotations:
+    kubernetes.io/ingress.class: ambassador
+spec:
+  tls:
+  - hosts:
+      - {{ .Values.host }}
+    secretName: {{ .Release.Name }}-certs
+  rules:
+    - host: {{ .Values.host }}
+      http:
+        paths:
+        - backend:
+            serviceName: {{ .Values.service.name }}
+            servicePort: {{ .Values.service.port }}

@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate 
+metadata:
+  name: {{ .Release.Name }}-certs
+spec:
+  secretName: {{ .Release.Name }}-certs
+  issuerRef:
+    name: letsencrypt-{{ .Release.Name }}
+    kind: Issuer
+  dnsNames:
+  - {{ .Values.host }}

@@ -1,0 +1,16 @@
+admin_email: vuha@ati.vn
+port: 4200
+host: vuha.jaxtony.xyz
+db_url: database_url
+db_image: mongo
+express_image: mongo-express
+
+# env 
+
+root_user: mongo-root-username
+root_password: mongo-root-password
+root_user_values: dXNlcm5hbWU=
+root_password_values: cGFzc3dvcmQ=
+
+#
+secret_type: Opaque

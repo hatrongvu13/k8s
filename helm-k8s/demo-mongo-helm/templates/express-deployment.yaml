@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-express
+  labels:
+    app: {{ .Release.Name }}-express
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-express
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-express
+    spec:
+      containers:
+      - name: {{ .Release.Name }}-express
+        image: {{ .Values.express_image }}
+        ports:
+        - containerPort: 8081
+        env:
+        - name: ME_CONFIG_MONGODB_ADMINUSERNAME
+          valueFrom:
+            secretKeyRef: # secret dung cho cac bien moi truong bi mat
+              name: {{ .Release.Name }}db-secret
+              key: {{ .Values.root_user }}
+        - name: ME_CONFIG_MONGODB_ADMINPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}db-secret
+              key: {{ .Values.root_password }}
+        - name: ME_CONFIG_MONGODB_SERVER
+          valueFrom:
+            configMapKeyRef: # dung cho cac bien moi truong khong chua thong tin nhay cam
+              name: {{ .Release.Name }}db-configmap
+              key: {{ .Values.db_url }}

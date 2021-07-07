@@ -1,0 +1,20 @@
+install 
+cert manager
+kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.7/deploy/manifests/cert-manager.yaml
+
+
+ingress controller helm install ambassador datawire/ambassador --namespace ambassador --create-namespace
+
+cert-manager helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.4.0 --set installCRDs=true
+
+
+https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx
+https://cert-manager.io/docs/tutorials/acme/ingress/#step-2-deploy-the-nginx-ingress-controller
+install nginx-controller using helm :
+step 1:
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+step 2:
+helm repo update
+step 3:
+helm install api-controller ingress-nginx/ingress-nginx --namespace nginx-controller --create-namespace
+step 4:

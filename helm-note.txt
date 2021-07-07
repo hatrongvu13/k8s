@@ -1,0 +1,31 @@
+chart -
+     file dinh nghia helm 
+     ten  
+     version 
+template -
+    casc file can thiet de deployment len k8s
+
+k8s deployment :
+deployment
+service
+configmap
+secret
+
+
+---
+virtual ip cau hinh ip ao
+
+---
+syntax
+
+
+-- -
+thu tu deploy  
+
+[configmap - secret ->] deployment -> service
+
+neu ma dung minikube thif cos the dung cmd
+minikkube addons enable ingress de cai ingress controller
+
+helm lint path check file
+helm template name-entity path-file 
