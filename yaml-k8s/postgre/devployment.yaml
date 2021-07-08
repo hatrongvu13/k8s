@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-db
+  labels:
+    app: postgre-db
+    db: postgre
+    env: prod
+spec:
+  selector:
+    matchLabels:
+      app: postgre-db
+      db: postgre
+      env: prod
+  template:
+    metadata:
+    spec:
+      containers:
+        

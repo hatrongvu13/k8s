@@ -1,0 +1,7 @@
+{{- if .Values.cert.enabled -}}
+apiVersion:
+kind: Issuer
+metadata:
+  name: letsencrypt-{{ .Release.Name }}
+spec:
+{{- end }}
