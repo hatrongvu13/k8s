@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       labels:
-        app: nginx # * mathcing vowsi lai labels
+        app: nginx # *
     spec: # dinh nghia pod
       containers:
       - name: nginx
