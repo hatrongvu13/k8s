@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-demo
+spec:
+  storageClassName: demo-pv-pvc
+  accessModes:
+   - ReadWriteMany
+   resources:
+   
