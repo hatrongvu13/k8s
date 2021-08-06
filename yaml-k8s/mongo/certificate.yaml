@@ -8,4 +8,4 @@ spec:
     name: letsencrypt-pod
     kind: Issuer
   dnsNames:
-  - vuha.jaxtony.xyz
+  - kong-demo.mb-innovationlab.com

@@ -9,18 +9,17 @@ metadata:
 spec:
   tls:
   - hosts:
-    - vuha.jaxtony.xyz
+    - kong-demo.mb-innovationlab.com
     secretName: tls-certificate-certs
   rules:
-  - host: vuha.jaxtony.xyz
+  - host: kong-demo.mb-innovationlab.com
     http:
       paths:
-      - path: /db(.*)
-      # - path: /
-        # pathType: Prefix
-        pathType: Exact
+      # - path: /db(.*)
+      - path: /
+        pathType: Prefix
         backend:
           service:
-            name: mongo-express-service
+            name: nginx-services
             port:
-              number: 4200
+              number: 80
