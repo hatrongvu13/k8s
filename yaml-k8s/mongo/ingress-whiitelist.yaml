@@ -1,0 +1,8 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mongo-ingress-whitelist
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/issuer
+spec:
