@@ -14,3 +14,7 @@ root_password_values: cGFzc3dvcmQ=
 
 #
 secret_type: Opaque
+
+#
+service:
+  type: LoadBalancer

@@ -5,6 +5,7 @@ metadata:
 spec:
   selector:
     app: {{ .Release.Name }}db
+    type: {{ .Values.service.type }}
   # type: LoadBalancer default is ClusterIP
   ports:
     - protocol: TCP
